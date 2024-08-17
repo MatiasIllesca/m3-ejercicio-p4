@@ -56,4 +56,37 @@ $(function () {
             $("#mostrar-ocultar").removeClass("btn-danger").addClass("btn-success").html("Mostrar")
         }
    })
+
+   $("#id-api").keyup(function () {
+        var busqueda = $("#id-api").val();
+        
+        var filtrados = superHeroes.filter(item => {
+            if (item.id.includes(busqueda)) {
+                return true
+            }
+            
+        })
+        listarSuperHeroes(filtrados);
+
+   })
+
+   $("#nombre-pj").keyup(function () {
+        var busqueda = $("#nombre-pj").val().toLowerCase();
+        var filtrados = superHeroes.filter(item => {
+            if (item.name.toLowerCase().includes(busqueda)) {
+                return true
+            }
+            
+        })
+        listarSuperHeroes(filtrados);
+    })
+    $("#ocupacion-pj").keyup(function () {
+        var busqueda = $("#ocupacion-pj").val().toLowerCase();
+        var filtrados = superHeroes.filter(item => {
+            if (item.work.occupation.toLowerCase().includes(busqueda)) {
+                return true
+            }
+        })
+        listarSuperHeroes(filtrados)
+    })
 });
