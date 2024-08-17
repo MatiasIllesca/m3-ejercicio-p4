@@ -43,5 +43,17 @@ $(function () {
             
             listarSuperHeroes(superHeroes);
         }
-   }) 
+   })
+
+   $("#mostrar-ocultar").click(function () {
+        if ($("#filtros").hasClass("d-none")) {
+            // mostrar filtro
+            $("#filtros").removeClass("d-none")
+            $("#mostrar-ocultar").removeClass("btn-success").addClass("btn-danger").html("Ocultar")
+        } else {
+            // ocultar filtro
+            $("#filtros").addClass("d-none")
+            $("#mostrar-ocultar").removeClass("btn-danger").addClass("btn-success").html("Mostrar")
+        }
+   })
 });
